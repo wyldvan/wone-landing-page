@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /og-image.html
+
+Sitemap: https://wonesistemas.com.br/sitemap.xml
