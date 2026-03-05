@@ -199,6 +199,13 @@ a {
   color: #fff;
 }
 
+.logo-image {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 254, 217, 0.3);
+}
+
 .logo-icon-small {
   width: 30px;
   height: 30px;
@@ -526,14 +533,17 @@ a {
 }
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   position: relative;
   z-index: 2;
 }
 
 .feature-card {
+  flex: 1 1 280px;
+  max-width: 350px;
   position: relative;
   background: var(--bg-card);
   border: 1px solid rgba(0, 254, 217, 0.12);
@@ -732,10 +742,16 @@ a {
 
 .trust-features {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
   align-items: center;
   margin-top: 80px;
+}
+
+.trust-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .trust-title-logo {
@@ -774,40 +790,29 @@ a {
   margin-right: 10px;
 }
 
-.trust-feature-illustration {
+.mockup-trust-illustration {
   position: relative;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.chess-wrapper {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow:
-    0 0 60px rgba(0, 254, 217, 0.2),
-    0 0 120px rgba(40, 0, 88, 0.6);
-}
-
-.chess-wrapper img.chess-img {
   width: 100%;
-  display: block;
-  animation: float 8s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
 }
 
-.chess-overlay {
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  width: 110%;
-  height: 110%;
-  background: linear-gradient(to right,
-      #0d0d0d 0%,
-      transparent 15%,
-      transparent 85%,
-      #0d0d0d 100%);
-  pointer-events: none;
-  z-index: 2;
+.mockups-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+img.mockup-devices-img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  object-fit: contain;
+  animation: float 10s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+
+  /* Mascara para suavizar as bordas (fade out) */
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
 }
 
 .segments {
@@ -1360,6 +1365,11 @@ a {
     text-align: center;
   }
 
+  .mockup-trust-illustration {
+    grid-row: 1;
+    margin-bottom: 40px;
+  }
+
   .trust-list li {
     justify-content: center;
   }
@@ -1369,7 +1379,6 @@ a {
   }
 
   .features-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 }
@@ -1445,10 +1454,10 @@ a {
   }
 
   .features-grid {
-    grid-template-columns: 1fr;
     gap: 16px;
     padding: 0 16px;
   }
+
 
   .mockup-dashboard {
     width: 100%;
